@@ -55,3 +55,10 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+.calculator-button {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
+}
