@@ -27,19 +27,35 @@ function addDecimal() {
     if (!calDisplay.textContent.includes('.'))
         calDisplay.textContent = `${calDisplay.textContent}.`;
 }
+//Calculate first and second values depending upon operator
+
+const calculate = {
+    '/': (firstNumber, secondNumber) => firstNumber / secondNumber,
+    '*': (firstNumber, secondNumber) => firstNumber * secondNumber,
+    '+': (firstNumber, secondNumber) => firstNumber + secondNumber,
+    '-': (firstNumber, secondNumber) => firstNumber - secondNumber,
+    '=': (firstNumber, secondNumber) => secondNumber,
+};
 
 function useOperator(operator) {
     const currentValue = Number(calDisplay.textContent);
+    //Prevent multiple operator
+    if (operatorValue && awaitingNextValue) {
+        operatorValue = operator;
+        return;
+    }
     //Assign firstValue if no value
     if (!firstValue)
         firstValue = currentValue;
 
-    else
-        console.log(currentValue);
+    else {
+        const calculation = calculate[operatorValue](firstValue, currentValue);
+        calDisplay.textContent = calculation;
+        firstValue = calculation;
+    }
     awaitingNextValue = true;
     operatorValue = operator;
-    console.log(firstValue);
-    console.log(operatorValue);
+
 }
 //Adding event listerner
 
