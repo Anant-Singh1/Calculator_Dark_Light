@@ -92,7 +92,7 @@ button:focus {
 }
 
 .clear {
-    background: rgb(255, 40, 40);
+    background: #ff2828;
     color: white;
 }
 
@@ -103,7 +103,7 @@ button:focus {
 .equal-sign {
     grid-column: -2;
     grid-row: 2/span 4;
-    background: rgb(24, 181, 84);
+    background: #18b554;
 }
 
 
